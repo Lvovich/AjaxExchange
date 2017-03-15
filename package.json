@@ -1,0 +1,20 @@
+{
+  "name": "aex",
+  "version": "1.0.0",
+  "description": "js-plugin",
+  "repository": "https://github.com/Lvovich/aex.git",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lvovich",
+  "license": "MIT",
+  "devDependencies": {
+    "es6-promise": "^4.1.0",
+    "google-closure-compiler": "^20170218.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sequence": "^0.4.6"
+  }
+}
