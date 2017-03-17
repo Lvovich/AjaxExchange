@@ -5,7 +5,7 @@
  *
  * @return {Object} - итоговые параметры
  */
-window['AEX'].prototype['validateOpts'] = function (opts)
+window['AEX'].prototype.validateOpts = function (opts)
 {
     if (!opts['waitingtime']) {
         opts['waitingtime'] = 30000;

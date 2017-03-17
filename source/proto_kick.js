@@ -6,17 +6,23 @@
  */
 window['AEX'].prototype['kick'] = function (data, responseHandler)
 {
-    if (!this['validateUserData'](arguments)) {
+    if (!this.validateUserData(data, responseHandler)) {
         console.warn('AEX.kick: Invalid user data or response handler. Aborted.');
         return;
     }
 
-    this.xhr['handleResponse'] = responseHandler;
+    this.xhr.handleResponse = responseHandler;
 
     this.xhr.open('POST', this.opts['target'], true);
 
-    var formData = new window['FormData'];
-    formData.append('ajax', JSON.stringify(data));
+    // из-за дебильного ИЕ эту настройку делаем после открытия запроса, а не в proto_prepareRequest.js
+    this.xhr.timeout = this.opts['waitingtime'];
 
-    this.xhr.send(formData);
+    var resObj = this.getExchangeData(data);
+
+    if (resObj.aexBoundary && this.xhr.setRequestHeader) {
+        this.xhr.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + resObj.aexBoundary);
+    }
+
+    this.xhr.send(resObj.userData);
 };

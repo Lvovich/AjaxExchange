@@ -13,10 +13,8 @@
 
 <script>
     var butt = document.querySelector('button'),
-        aex = new AEX({target:'ajax.php'});
-
-    butt.addEventListener('click', function () {
-        var data = {
+        aex = new AEX({target:'ajax.php'}),
+        data = {
             tralala  : [4,5],
             eprst    : 'qwer',
             ischoObj : {
@@ -25,8 +23,8 @@
             }
         };
 
-        aex.kick(data, function (response) {
-            alert(response);
-        });
-    })
+    butt.onclick = function () {
+        aex.kick(data, function (response) {})
+    };
+
 </script>

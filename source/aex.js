@@ -9,12 +9,12 @@
  */
 window['AEX'] = function (opts)
 {
-    if (typeof this !== 'object' || ! window['FormData']) {
-        console.error('AEX: incorrect call without "new" or too old browser. Plugin Off!');
+    if (typeof this !== 'object') {
+        console.error('AEX: incorrect call without "new". Plugin Off!');
         return {"kick":function(){}};
     }
 
-    this.opts = this['validateOpts'](opts);
+    this.opts = this.validateOpts(opts);
 
-    this['prepareRequest']();
+    this.prepareRequest();
 };
