@@ -15,7 +15,7 @@
     var butt = document.querySelector('button'),
         aex = new AEX({target:'ajax.php'}),
         data = {
-            tralala  : [4,5],
+            tralala  : [4, {f:5}],
             eprst    : 'qwer',
             ischoObj : {
                 ipaaat : '!',
@@ -24,7 +24,7 @@
         };
 
     butt.onclick = function () {
-        aex.kick(data, function (response) {})
+        aex.kick(data)
     };
 
 </script>
