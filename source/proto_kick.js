@@ -20,7 +20,7 @@ window['AEX'].prototype['kick'] = function (data, responseHandler)
 
     var resObj = this.getExchangeData(data);
 
-    if (resObj.aexBoundary && this.xhr.setRequestHeader) {
+    if (resObj.aexBoundary) {
         this.xhr.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + resObj.aexBoundary);
     }
 

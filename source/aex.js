@@ -9,12 +9,10 @@
  */
 window['AEX'] = function (opts)
 {
-    if (typeof this !== 'object') {
-        console.error('AEX: incorrect call without "new". Plugin Off!');
+    if (!(typeof this === 'object' && this.prepareRequest())) {
+        console.error('AEX: incorrect call without "new" or browser not supported. Plugin Off!');
         return {"kick":function(){}};
     }
 
     this.opts = this.validateOpts(opts);
-
-    this.prepareRequest();
 };
