@@ -1,7 +1,7 @@
 /**
  * Пинает подготовленный запрос на подготовленный адрес.
  *
- * @param {Object}   data            - объект от пользователя, с данными для отправки.
+ * @param {Object}     data            - объект от пользователя, с данными для отправки.
  * @param {function()} responseHandler - пользовательский обработчик ответа.
  */
 window['AEX'].prototype['kick'] = function (data, responseHandler)

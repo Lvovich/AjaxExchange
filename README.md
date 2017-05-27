@@ -1,1 +1,1 @@
-Simple AJAX Exchange JS plugin
+Simple AJAX Exchange JS Plugin
