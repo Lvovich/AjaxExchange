@@ -24,7 +24,8 @@
         };
 
     butt.onclick = function () {
-        aex.kick(data)
+        console.dir(aex.kick(data, function() {
+            console.dir(this.responseText);
+        }));
     };
-
 </script>

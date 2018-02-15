@@ -10,7 +10,7 @@
   "author": "Lvovich",
   "license": "MIT",
   "devDependencies": {
-    "es6-promise": "^4.1.0",
+    "es6-promise": "^4.2.4",
     "google-closure-compiler": "^20170218.0.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",

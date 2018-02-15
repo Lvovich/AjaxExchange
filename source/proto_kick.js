@@ -1,22 +1,17 @@
 /**
  * Пинает подготовленный запрос на подготовленный адрес.
  *
- * @param {Object}     data            - объект от пользователя, с данными для отправки.
- * @param {function()} responseHandler - пользовательский обработчик ответа.
+ * @param {Object}      data            - объект от пользователя, с данными для отправки.
+ * @param {function()=} responseHandler - пользовательский обработчик ответа.
+ *
+ * @return {XMLHttpRequest}
  */
-window['AEX'].prototype['kick'] = function (data, responseHandler)
+window['AEX'].prototype['kick'] = function(data, responseHandler)
 {
     if (!this.validateUserData(data, responseHandler)) {
         console.warn('AEX.kick: Invalid user data or response handler. Aborted.');
-        return;
+        return null;
     }
-
-    this.xhr.handleResponse = responseHandler;
-
-    this.xhr.open('POST', this.opts['target'], true);
-
-    // из-за дебильного ИЕ эту настройку делаем после открытия запроса, а не в proto_prepareRequest.js
-    this.xhr.timeout = this.opts['waitingtime'];
 
     var resObj = this.getExchangeData(data);
 
@@ -24,5 +19,11 @@ window['AEX'].prototype['kick'] = function (data, responseHandler)
         this.xhr.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + resObj.aexBoundary);
     }
 
+    this.xhr.handleResponse = responseHandler;
+
+    this.xhr.open('POST', this.opts['target'], true);
+    this.xhr.timeout = this.opts['waitingtime'];
     this.xhr.send(resObj.userData);
+
+    return this.xhr;
 };
