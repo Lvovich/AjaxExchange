@@ -4,7 +4,7 @@
  * @param {Object}      data            - объект от пользователя, с данными для отправки.
  * @param {function()=} responseHandler - пользовательский обработчик ответа.
  *
- * @return {XMLHttpRequest}
+ * @return {{xhr:XMLHttpRequest, data:Object}|null}
  */
 window['AEX'].prototype['kick'] = function(data, responseHandler)
 {
@@ -25,5 +25,5 @@ window['AEX'].prototype['kick'] = function(data, responseHandler)
     this.xhr.timeout = this.opts['waitingtime'];
     this.xhr.send(resObj.userData);
 
-    return this.xhr;
+    return {'xhr':this.xhr, 'data':data};
 };

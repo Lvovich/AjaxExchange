@@ -17,8 +17,8 @@ window['AEX'].prototype.validateOpts = function (opts)
     opts['target'] = opts['target'] ? ('' + opts['target']) : '/';
     opts['defaultParamName'] = opts['defaultParamName'] ? ('' + opts['defaultParamName']) : 'ajax';
 
-    opts.allowTypes  = {'object':0, 'string':0, 'number':0, 'boolean':0};   // допустимые типы данных для отправки
-    opts.simpleTypes = {'string':0, 'number':0, 'boolean':0};               // простые типы данных, которые не кодируем
+    opts.allowTypes  = {'object':1, 'string':1, 'number':1, 'boolean':1};   // допустимые типы данных для отправки
+    opts.simpleTypes = {'string':1, 'number':1, 'boolean':1};               // простые типы данных, которые не кодируем
 
     return opts;
 };
